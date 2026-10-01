@@ -20,10 +20,6 @@ body {
     color: #8b3159;
 }
 
-/* =========================
-   PANTALLAS
-========================= */
-
 .pantalla {
     position: fixed;
     width: 100%;
@@ -54,10 +50,6 @@ body.abierto #pantallaSorpresa {
     left: 0;
     opacity: 1;
 }
-
-/* =========================
-   PRIMERA PANTALLA
-========================= */
 
 .tarjeta {
     width: 90%;
@@ -120,10 +112,6 @@ h1 {
     transform: scale(1.08);
 }
 
-/* =========================
-   SORPRESA
-========================= */
-
 .sorpresa-card {
     width: 95%;
     max-width: 1000px;
@@ -149,10 +137,6 @@ h1 {
     line-height: 1.7;
     margin-bottom: 30px;
 }
-
-/* =========================
-   FOTOS
-========================= */
 
 .album {
     display: grid;
@@ -216,10 +200,6 @@ h1 {
     color: #a83262;
 }
 
-/* =========================
-   CARTA
-========================= */
-
 .carta {
     max-width: 750px;
     margin: 25px auto 45px;
@@ -236,10 +216,6 @@ h1 {
     font-weight: bold;
     color: #d94f83;
 }
-
-/* =========================
-   13 RAZONES
-========================= */
 
 .titulo-razones {
     font-family: Georgia, serif;
@@ -282,10 +258,6 @@ h1 {
     margin-bottom: 7px;
 }
 
-/* =========================
-   FINAL
-========================= */
-
 .final {
     margin-top: 45px;
     padding: 35px 20px;
@@ -311,10 +283,6 @@ h1 {
     animation: latido 1s infinite;
 }
 
-/* =========================
-   DECORACIONES
-========================= */
-
 .decoracion {
     position: fixed;
     top: -50px;
@@ -323,10 +291,6 @@ h1 {
     pointer-events: none;
     z-index: 10;
 }
-
-/* =========================
-   CONFETI
-========================= */
 
 .confeti {
     position: fixed;
@@ -337,10 +301,6 @@ h1 {
     animation: confetiCaer 4s linear forwards;
 }
 
-/* =========================
-   BRILLOS
-========================= */
-
 .brillo {
     position: fixed;
     pointer-events: none;
@@ -348,10 +308,6 @@ h1 {
     font-size: 25px;
     animation: brilloSubir 2.5s ease-out forwards;
 }
-
-/* =========================
-   ANIMACIONES
-========================= */
 
 @keyframes caer {
     from {
@@ -427,7 +383,7 @@ h1 {
 }
 
 @keyframes flotar {
-    0%, 100% {
+    0%,100% {
         transform: translateY(0);
     }
 
@@ -437,7 +393,7 @@ h1 {
 }
 
 @keyframes latido {
-    0%, 100% {
+    0%,100% {
         transform: scale(1);
     }
 
@@ -446,11 +402,7 @@ h1 {
     }
 }
 
-/* =========================
-   CELULAR
-========================= */
-
-@media (max-width: 700px) {
+@media (max-width:700px) {
 
     h1 {
         font-size: 42px;
@@ -485,12 +437,11 @@ h1 {
         font-size: 29px;
     }
 }
+
 </style>
 </head>
 
 <body>
-
-<!-- DECORACIONES -->
 
 <div class="decoracion" style="left:5%; animation-duration:7s;">💕</div>
 <div class="decoracion" style="left:15%; animation-duration:9s;">🎀</div>
@@ -500,10 +451,6 @@ h1 {
 <div class="decoracion" style="left:72%; animation-duration:7s;">🎀</div>
 <div class="decoracion" style="left:88%; animation-duration:9s;">💗</div>
 
-
-<!-- =========================
-     PRIMERA PANTALLA
-========================= -->
 
 <section id="pantallaInicio" class="pantalla">
 
@@ -537,10 +484,6 @@ h1 {
 </section>
 
 
-<!-- =========================
-     SEGUNDA PANTALLA
-========================= -->
-
 <section id="pantallaSorpresa" class="pantalla">
 
     <div class="sorpresa-card">
@@ -560,43 +503,79 @@ h1 {
         </p>
 
 
-        <!-- =========================
-             LAS 5 FOTOS
-        ========================= -->
-
         <div class="album">
 
             <div class="foto">
-                <img src="imagenes/WhatsApp Image 2026-10-01 at 08.35.49 (1).jpeg" alt="Rihanna">
-                <p>Un recuerdo especial 💕</p>
+
+                <img
+                    src="imagenes/WhatsApp Image 2026-10-01 at 08.35.49 (1).jpeg"
+                    alt="Rihanna"
+                >
+
+                <p>
+                    Un recuerdo especial 💕
+                </p>
+
             </div>
 
-            <div class="foto">
-                <img src="imagenes/WhatsApp Image 2026-10-01 at 08.35.49 (2).jpeg" alt="Rihanna">
-                <p>Un momento bonito 🎀</p>
-            </div>
 
             <div class="foto">
-                <img src="imagenes/WhatsApp Image 2026-10-01 at 08.35.49.jpeg" alt="Rihanna">
-                <p>Siempre sonriendo 💗</p>
+
+                <img
+                    src="imagenes/WhatsApp Image 2026-10-01 at 08.35.49 (2).jpeg"
+                    alt="Rihanna"
+                >
+
+                <p>
+                    Un momento bonito 🎀
+                </p>
+
             </div>
 
-            <div class="foto">
-                <img src="imagenes/WhatsApp Image 2026-10-01 at 08.35.50 (1).jpeg" alt="Rihanna">
-                <p>Un día para recordar ✨</p>
-            </div>
 
             <div class="foto">
-                <img src="imagenes/WhatsApp Image 2026-10-01 at 08.35.50.jpeg" alt="Rihanna">
-                <p>💕 Feliz cumpleaños 💕</p>
+
+                <img
+                    src="imagenes/WhatsApp Image 2026-10-01 at 08.35.49.jpeg"
+                    alt="Rihanna"
+                >
+
+                <p>
+                    Siempre sonriendo 💗
+                </p>
+
+            </div>
+
+
+            <div class="foto">
+
+                <img
+                    src="imagenes/WhatsApp Image 2026-10-01 at 08.35.50 (1).jpeg"
+                    alt="Rihanna"
+                >
+
+                <p>
+                    Un día para recordar ✨
+                </p>
+
+            </div>
+
+
+            <div class="foto">
+
+                <img
+                    src="imagenes/WhatsApp Image 2026-10-01 at 08.35.50.jpeg"
+                    alt="Rihanna"
+                >
+
+                <p>
+                    💕 Feliz cumpleaños 💕
+                </p>
+
             </div>
 
         </div>
 
-
-        <!-- =========================
-             CARTA
-        ========================= -->
 
         <div class="carta">
 
@@ -634,10 +613,6 @@ h1 {
         </div>
 
 
-        <!-- =========================
-             13 RAZONES
-        ========================= -->
-
         <h2 class="titulo-razones">
             💖 13 cosas que hacen especial a Rihanna 💖
         </h2>
@@ -645,6 +620,7 @@ h1 {
         <p class="subtitulo-razones">
             Porque cumplir 13 merece 13 razones para sonreír. 🎀
         </p>
+
 
         <div class="razones">
 
@@ -716,10 +692,6 @@ h1 {
         </div>
 
 
-        <!-- =========================
-             FINAL
-        ========================= -->
-
         <div class="final">
 
             <h3>
@@ -767,8 +739,6 @@ function abrirSorpresa() {
 }
 
 
-/* CONFETI */
-
 function lanzarConfeti() {
 
     const emojis = [
@@ -810,8 +780,6 @@ function lanzarConfeti() {
 
 }
 
-
-/* BRILLITOS */
 
 function lanzarBrillos() {
 
