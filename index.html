@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Rihanna 🎀</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #fff0f7, #ffc1dc);
+    overflow: hidden;
+    color: #8b3159;
+}
+
+/* =========================
+   PANTALLAS
+========================= */
+
+.pantalla {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    transition: 1s ease;
+    overflow-y: auto;
+}
+
+#pantallaInicio {
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pantallaSorpresa {
+    left: 100%;
+    opacity: 0;
+    padding: 30px 15px 60px;
+}
+
+body.abierto #pantallaInicio {
+    left: -100%;
+}
+
+body.abierto #pantallaSorpresa {
+    left: 0;
+    opacity: 1;
+}
+
+/* =========================
+   PRIMERA PANTALLA
+========================= */
+
+.tarjeta {
+    width: 90%;
+    max-width: 600px;
+    padding: 45px 25px;
+    text-align: center;
+    background: rgba(255,255,255,0.88);
+    border-radius: 35px;
+    box-shadow: 0 15px 40px rgba(180,70,120,0.25);
+    border: 3px solid white;
+    animation: aparecer 1.2s ease;
+}
+
+.corona {
+    font-size: 55px;
+    margin-bottom: 10px;
+    animation: flotar 2s ease-in-out infinite;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 55px;
+    color: #d94f83;
+    margin-bottom: 15px;
+}
+
+.nombre {
+    font-size: 32px;
+    font-weight: bold;
+    color: #a83262;
+    margin-bottom: 10px;
+}
+
+.edad {
+    font-size: 25px;
+    color: #d94f83;
+    margin-bottom: 25px;
+}
+
+.intro {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.boton {
+    border: none;
+    background: linear-gradient(135deg, #e85d95, #c93670);
+    color: white;
+    padding: 17px 30px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(200,50,110,0.3);
+    transition: 0.3s;
+}
+
+.boton:hover {
+    transform: scale(1.08);
+}
+
+/* =========================
+   SORPRESA
+========================= */
+
+.sorpresa-card {
+    width: 95%;
+    max-width: 1000px;
+    margin: auto;
+    background: rgba(255,255,255,0.92);
+    border-radius: 35px;
+    padding: 35px 25px 45px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(180,70,120,0.25);
+    border: 3px solid white;
+    animation: aparecerSorpresa 1.5s ease;
+}
+
+.sorpresa-card h2 {
+    font-family: Georgia, serif;
+    color: #d94f83;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.mensaje {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   FOTOS
+========================= */
+
+.album {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    justify-items: center;
+    margin: 25px 0 40px;
+}
+
+.foto {
+    width: 100%;
+    max-width: 280px;
+    background: white;
+    padding: 12px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(170,60,110,0.2);
+    opacity: 0;
+    animation: fotoEntrar 1s ease forwards;
+}
+
+.foto:nth-child(1) {
+    transform: rotate(-3deg);
+    animation-delay: 0.3s;
+}
+
+.foto:nth-child(2) {
+    transform: rotate(3deg);
+    animation-delay: 0.5s;
+}
+
+.foto:nth-child(3) {
+    transform: rotate(-2deg);
+    animation-delay: 0.7s;
+}
+
+.foto:nth-child(4) {
+    transform: rotate(3deg);
+    animation-delay: 0.9s;
+}
+
+.foto:nth-child(5) {
+    transform: rotate(-3deg);
+    animation-delay: 1.1s;
+}
+
+.foto:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.foto img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+}
+
+.foto p {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #a83262;
+}
+
+/* =========================
+   CARTA
+========================= */
+
+.carta {
+    max-width: 750px;
+    margin: 25px auto 45px;
+    background: #fff7fb;
+    padding: 28px;
+    border-radius: 25px;
+    border: 2px dashed #e58aad;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+.firma {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #d94f83;
+}
+
+/* =========================
+   13 RAZONES
+========================= */
+
+.titulo-razones {
+    font-family: Georgia, serif;
+    color: #d94f83;
+    font-size: 34px;
+    margin: 35px 0 10px;
+}
+
+.subtitulo-razones {
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.razones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.razon {
+    background: linear-gradient(135deg, #fff0f7, #ffe0ed);
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 18px 15px;
+    box-shadow: 0 6px 15px rgba(190,70,120,0.15);
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.razon:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.numero {
+    display: block;
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+    margin-top: 45px;
+    padding: 35px 20px;
+    background: linear-gradient(135deg, #ffe1ed, #fff3f8);
+    border-radius: 30px;
+}
+
+.final h3 {
+    font-family: Georgia, serif;
+    color: #d94f83;
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.final p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.corazon-final {
+    font-size: 55px;
+    animation: latido 1s infinite;
+}
+
+/* =========================
+   DECORACIONES
+========================= */
+
+.decoracion {
+    position: fixed;
+    top: -50px;
+    font-size: 25px;
+    animation: caer linear infinite;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* =========================
+   CONFETI
+========================= */
+
+.confeti {
+    position: fixed;
+    top: -30px;
+    font-size: 22px;
+    z-index: 50;
+    pointer-events: none;
+    animation: confetiCaer 4s linear forwards;
+}
+
+/* =========================
+   BRILLOS
+========================= */
+
+.brillo {
+    position: fixed;
+    pointer-events: none;
+    z-index: 60;
+    font-size: 25px;
+    animation: brilloSubir 2.5s ease-out forwards;
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes caer {
+    from {
+        transform: translateY(-50px) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+@keyframes confetiCaer {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg) scale(0.5);
+        opacity: 0;
+    }
+}
+
+@keyframes brilloSubir {
+    0% {
+        transform: translateY(0) scale(0.4) rotate(0deg);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-180px) scale(1.5) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes aparecerSorpresa {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fotoEntrar {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 700px) {
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .nombre {
+        font-size: 27px;
+    }
+
+    .sorpresa-card h2 {
+        font-size: 30px;
+    }
+
+    .album {
+        grid-template-columns: 1fr;
+    }
+
+    .foto {
+        width: 90%;
+        max-width: 340px;
+    }
+
+    .foto img {
+        height: 330px;
+    }
+
+    .razones {
+        grid-template-columns: 1fr;
+    }
+
+    .titulo-razones {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- DECORACIONES -->
+
+<div class="decoracion" style="left:5%; animation-duration:7s;">💕</div>
+<div class="decoracion" style="left:15%; animation-duration:9s;">🎀</div>
+<div class="decoracion" style="left:28%; animation-duration:6s;">💗</div>
+<div class="decoracion" style="left:42%; animation-duration:8s;">✨</div>
+<div class="decoracion" style="left:58%; animation-duration:10s;">💕</div>
+<div class="decoracion" style="left:72%; animation-duration:7s;">🎀</div>
+<div class="decoracion" style="left:88%; animation-duration:9s;">💗</div>
+
+
+<!-- =========================
+     PRIMERA PANTALLA
+========================= -->
+
+<section id="pantallaInicio" class="pantalla">
+
+    <div class="tarjeta">
+
+        <div class="corona">👑</div>
+
+        <h1>Happy Birthday</h1>
+
+        <div class="nombre">
+            Rihanna Morel 💕
+        </div>
+
+        <div class="edad">
+            ✨ 13 años ✨
+        </div>
+
+        <p class="intro">
+            Hoy es un día muy especial porque celebramos
+            la vida de una persona increíble. 💗
+            <br><br>
+            Prepárate para abrir tu pequeña sorpresa...
+        </p>
+
+        <button class="boton" onclick="abrirSorpresa()">
+            🎁 Abrir mi sorpresa
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SEGUNDA PANTALLA
+========================= -->
+
+<section id="pantallaSorpresa" class="pantalla">
+
+    <div class="sorpresa-card">
+
+        <h2>
+            🎉 ¡Feliz cumpleaños, Rihanna! 🎉
+        </h2>
+
+        <p class="mensaje">
+            Hoy celebramos tus <strong>13 años</strong> y
+            todos los momentos bonitos que has compartido
+            con las personas que te quieren. 💕
+            <br><br>
+            Deseo que esta nueva etapa esté llena de
+            felicidad, sueños cumplidos, aventuras,
+            risas y muchísimas cosas bonitas. 🎀✨
+        </p>
+
+
+        <!-- =========================
+             LAS 5 FOTOS
+        ========================= -->
+
+        <div class="album">
+
+            <div class="foto">
+                <img src="imagenes/WhatsApp Image 2026-10-01 at 08.35.49 (1).jpeg" alt="Rihanna">
+                <p>Un recuerdo especial 💕</p>
+            </div>
+
+            <div class="foto">
+                <img src="imagenes/WhatsApp Image 2026-10-01 at 08.35.49 (2).jpeg" alt="Rihanna">
+                <p>Un momento bonito 🎀</p>
+            </div>
+
+            <div class="foto">
+                <img src="imagenes/WhatsApp Image 2026-10-01 at 08.35.49.jpeg" alt="Rihanna">
+                <p>Siempre sonriendo 💗</p>
+            </div>
+
+            <div class="foto">
+                <img src="imagenes/WhatsApp Image 2026-10-01 at 08.35.50 (1).jpeg" alt="Rihanna">
+                <p>Un día para recordar ✨</p>
+            </div>
+
+            <div class="foto">
+                <img src="imagenes/WhatsApp Image 2026-10-01 at 08.35.50.jpeg" alt="Rihanna">
+                <p>💕 Feliz cumpleaños 💕</p>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             CARTA
+        ========================= -->
+
+        <div class="carta">
+
+            <p>
+                💌 <strong>Para Rihanna:</strong>
+            </p>
+
+            <br>
+
+            <p>
+                Feliz cumpleaños, mi niña. 💗
+                Espero que disfrutes muchísimo tus 13 años
+                y que nunca dejes de sonreír.
+            </p>
+
+            <br>
+
+            <p>
+                Que Dios te bendiga siempre, cuide cada uno
+                de tus pasos y te permita cumplir todos
+                tus sueños. ✨
+            </p>
+
+            <br>
+
+            <p>
+                Nunca olvides lo especial que eres
+                y lo mucho que te queremos. 💕🎀
+            </p>
+
+            <p class="firma">
+                Con mucho amor 💗
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             13 RAZONES
+        ========================= -->
+
+        <h2 class="titulo-razones">
+            💖 13 cosas que hacen especial a Rihanna 💖
+        </h2>
+
+        <p class="subtitulo-razones">
+            Porque cumplir 13 merece 13 razones para sonreír. 🎀
+        </p>
+
+        <div class="razones">
+
+            <div class="razon">
+                <span class="numero">🌸 1</span>
+                Tu sonrisa tan bonita.
+            </div>
+
+            <div class="razon">
+                <span class="numero">🎀 2</span>
+                Tu forma única de ser.
+            </div>
+
+            <div class="razon">
+                <span class="numero">💕 3</span>
+                El cariño que das a los demás.
+            </div>
+
+            <div class="razon">
+                <span class="numero">✨ 4</span>
+                La alegría que llevas contigo.
+            </div>
+
+            <div class="razon">
+                <span class="numero">🦋 5</span>
+                Tus sueños y todo lo que quieres lograr.
+            </div>
+
+            <div class="razon">
+                <span class="numero">💗 6</span>
+                Tu personalidad especial.
+            </div>
+
+            <div class="razon">
+                <span class="numero">🌷 7</span>
+                Los momentos divertidos que compartes.
+            </div>
+
+            <div class="razon">
+                <span class="numero">👑 8</span>
+                La personita increíble en la que te estás convirtiendo.
+            </div>
+
+            <div class="razon">
+                <span class="numero">🌟 9</span>
+                Tu manera de hacer especiales los momentos.
+            </div>
+
+            <div class="razon">
+                <span class="numero">💐 10</span>
+                Tu corazón.
+            </div>
+
+            <div class="razon">
+                <span class="numero">🎉 11</span>
+                Tus ocurrencias que siempre sacan sonrisas.
+            </div>
+
+            <div class="razon">
+                <span class="numero">💎 12</span>
+                Lo valiosa que eres.
+            </div>
+
+            <div class="razon">
+                <span class="numero">💖 13</span>
+                Simplemente porque eres tú, Rihanna.
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             FINAL
+        ========================= -->
+
+        <div class="final">
+
+            <h3>
+                🎂 ¡Felices 13, Rihanna! 🎂
+            </h3>
+
+            <p>
+                Que este nuevo año de vida sea solamente
+                el comienzo de muchísimas cosas hermosas.
+                💕✨
+            </p>
+
+            <p>
+                Nunca dejes de soñar, de reír y de ser
+                esa persona tan especial que eres.
+            </p>
+
+            <div class="corazon-final">
+                💗
+            </div>
+
+            <p>
+                <strong>
+                    Te quiero muchísimo. 🎀
+                </strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+function abrirSorpresa() {
+
+    document.body.classList.add("abierto");
+
+    lanzarConfeti();
+
+    lanzarBrillos();
+
+}
+
+
+/* CONFETI */
+
+function lanzarConfeti() {
+
+    const emojis = [
+        "🎉",
+        "🎀",
+        "💕",
+        "💗",
+        "✨",
+        "🎊",
+        "💖",
+        "🌸"
+    ];
+
+    for (let i = 0; i < 80; i++) {
+
+        const confeti = document.createElement("div");
+
+        confeti.classList.add("confeti");
+
+        confeti.innerText =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        confeti.style.left =
+            Math.random() * 100 + "vw";
+
+        confeti.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
+
+        confeti.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+        document.body.appendChild(confeti);
+
+        setTimeout(() => {
+            confeti.remove();
+        }, 7000);
+
+    }
+
+}
+
+
+/* BRILLITOS */
+
+function lanzarBrillos() {
+
+    const brillos = [
+        "✨",
+        "💖",
+        "💗",
+        "🌸",
+        "⭐"
+    ];
+
+    for (let i = 0; i < 35; i++) {
+
+        const brillo = document.createElement("div");
+
+        brillo.classList.add("brillo");
+
+        brillo.innerText =
+            brillos[Math.floor(Math.random() * brillos.length)];
+
+        brillo.style.left =
+            Math.random() * 100 + "vw";
+
+        brillo.style.top =
+            (40 + Math.random() * 50) + "vh";
+
+        brillo.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        document.body.appendChild(brillo);
+
+        setTimeout(() => {
+            brillo.remove();
+        }, 4000);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
